@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Songline — a song for every fact</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Songline</h1>
+  <p class="tag">Paste the facts you keep losing. Get a thirty-second song that sticks, in the style you choose.</p>
+</header>
+<main>
+  <section class="controls">
+    <button id="song">Make my song</button>
+    <button id="quiz" class="ghost">Quiz me</button>
+    <button id="signin" class="ghost">Sign in with Pollinations</button>
+    <span id="status" class="status"></span>
+  </section>
+
+  <section class="panel">
+    <label class="lbl" for="notes">Facts to remember</label>
+    <textarea id="notes" rows="6" placeholder="The Krebs cycle makes 2 ATP per glucose. Water freezes at 0 C. Madrid is the capital of Spain."></textarea>
+    <div class="askrow">
+      <label class="lbl" for="style">Style</label>
+      <select id="style"></select>
+    </div>
+  </section>
+
+  <section id="songbox" class="panel" hidden>
+    <h2 id="songtitle"></h2>
+    <p id="songsstyle" class="dim"></p>
+    <audio id="player" controls></audio>
+    <p id="audionote" class="dim"></p>
+    <div id="lyrics" class="lyrics"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Playlist</h2>
+    <div id="playlist" class="playlist"><p class="dim">Songs you make are kept here, in this browser.</p></div>
+  </section>
+
+  <section class="hints">
+    <h2>How it works</h2>
+    <ul>
+      <li>Your notes go to a Pollinations text model, which writes a short song: a hook that repeats and verses that carry one fact each.</li>
+      <li>The lyrics are set to music with a Pollinations music model, and if that model is not available on your account the same lyrics are spoken back instead, so you always get something to hear.</li>
+      <li>Quiz mode blanks the key words in your song, one click each, until you can sing it from memory.</li>
+      <li>Signing in is a plain OAuth + PKCE loop in your browser: your own Pollen pays for the writing and the music. Nothing is proxied.</li>
+    </ul>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
